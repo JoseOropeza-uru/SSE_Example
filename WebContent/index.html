@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script>
+
+function $(id) {
+	return document.getElementById(id);
+}
+
+var es = new EventSource("./sse-test");
+
+es.onmessage = function (event) {
+	console.log(1);
+	$("content").innerHTML += "<br /> "+ event.data;
+}
+</script>
+</body>
+</html>
